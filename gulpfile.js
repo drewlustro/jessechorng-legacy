@@ -22,14 +22,14 @@ gulp.task('jshint', function () {
     .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('html', ['styles'], function () {
+gulp.task('html', ['styles', 'fileinclude'], function () {
   var lazypipe = require('lazypipe');
   var cssChannel = lazypipe()
     .pipe($.csso)
     .pipe($.replace, 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap','fonts');
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
-  return gulp.src('app/*.html')
+  return gulp.src('.tmp/*.html')
     .pipe(assets)
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', cssChannel()))
@@ -67,7 +67,16 @@ gulp.task('extras', function () {
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
-gulp.task('connect', ['styles'], function () {
+gulp.task('fileinclude', function() {
+  gulp.src(['app/*.html'])
+    .pipe($.fileInclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    .pipe(gulp.dest('.tmp'));
+});
+
+gulp.task('connect', ['fileinclude', 'styles'], function () {
   var serveStatic = require('serve-static');
   var serveIndex = require('serve-index');
   var app = require('connect')()
@@ -108,12 +117,13 @@ gulp.task('watch', ['connect'], function () {
 
   // watch for changes
   gulp.watch([
-    'app/*.html',
+    '.tmp/*.html',
     '.tmp/styles/**/*.css',
     'app/scripts/**/*.js',
     'app/images/**/*'
   ]).on('change', $.livereload.changed);
 
+  gulp.watch(['app/*.html', 'app/partials/*.html'], ['fileinclude']);
   gulp.watch('app/styles/**/*.sass', ['styles']);
   gulp.watch('bower.json', ['wiredep']);
 });
