@@ -1,0 +1,82 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/"
+
+// bower:scss
+@import ../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss
+// endbower
+
+@import vendor/bourbon/bourbon
+@import vendor/maxrelax/maxrelax
+
+$link-color: $dropbox-color
+$link-color-footer: $grey-50
+$line-height-menu: 2rem
+$padding-gutter-single: 1em
+$padding-gutter-double: ($padding-gutter-single * 2)
+$padding-gutter-half: ($padding-gutter-single / 2)
+
+
+h5, h6
+    font-weight: 800
+    text-transform: uppercase
+    letter-spacing: 0.1rem
+    &:first-child
+        margin-top: 0
+
+a
+    color: $link-color
+    +hover-active-focus
+        text-decoration: none
+        color: darken($link-color, 12%)
+
+.menu
+    +clearfix
+    border-bottom: 1px solid $grey-10
+    padding-top: $padding-gutter-double
+    padding-bottom: $padding-gutter-single
+    margin-bottom: $padding-gutter-double
+
+    ul
+        +clearfix
+        +list-reset
+        float: left
+        display: block
+        max-width: 50%
+        li
+            display: block
+            float: left
+            max-width: 140px
+            a
+                display: block
+                text-align: center
+                padding: 0 2em
+                line-height: $line-height-menu * 1.4
+                color: $charcoal
+            &:first-child
+                a
+                    padding-left: 0
+    .signature
+        float: right
+        margin: 0
+        min-width: 20%
+        max-width: 50%
+        text-align: right
+        line-height: $line-height-menu
+
+.row-media
+    margin-bottom: 2em
+
+.footer
+    +linear-gradient(to top, $charcoal, $black)
+    +font-antialiased
+    margin-top: 4em
+    padding: ($padding-gutter-single * 3) $padding-gutter-single
+    font-weight: 300
+    font-size: 1.2rem
+    letter-spacing: .1rem
+    text-transform: uppercase
+    color: $link-color-footer
+    a
+        color: $link-color-footer
+
+
+
