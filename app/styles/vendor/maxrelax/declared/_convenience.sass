@@ -1,0 +1,74 @@
+// declared/_convenience.sass
+
+$text-default-color: #1b1b1b !default
+
+.left
+    float: left
+
+.right
+    float: right
+
+.hidden
+    display: none
+
+.center
+    margin-left: auto
+    margin-right: auto
+
+.inline-block
+    display: inline-block
+
+.text-left
+    text-align: left !important
+.text-center
+    text-align: center !important
+.text-right
+    text-align: right !important
+
+.scrollable
+    overflow-y: auto
+    overflow-x: hidden
+
+.list-reset
+    list-style: none
+    margin: 0
+    padding: 0
+
+.normal
+    font-weight: normal !important
+
+.muted
+    color: rgba($text-default-color, .6)
+
+.mini
+    font-size: 70%
+    line-height: inherit
+
+.clear,
+.clearfix
+    +clearfix
+
+.show-inline
+    display: inline !important
+
+.show-inline-block
+    display: inline-block !important
+
+.no-border
+    border: 0 !important
+
+.cursor-default
+    cursor: default !important
+
+$directions: top bottom left right
+
+@for $i from 0 through 10
+    .padding-#{($i * 5)}
+        padding: ($i * 5px) !important
+    @each $d in $directions
+        .padding-#{$d}-#{($i * 5)}
+            padding-#{$d}: ($i * 5px) !important
+        .margin-#{($i * 5)}
+            margin: ($i * 5px) !important
+        .margin-#{$d}-#{($i * 5)}
+            margin-#{$d}: ($i * 5px) !important

@@ -1,0 +1,14 @@
+
+
+// Viewport sizing with % fallbacks for older browsers
+=vwidth($width: 100)
+    width: $width * 1%
+    width: $width * 1vw
+
+=vheight($height: 100)
+    height: $height * 1%
+    height: $height * 1vh
+
+=vsize($size: 100)
+    +vwidth($size)
+    +vheight($size)
