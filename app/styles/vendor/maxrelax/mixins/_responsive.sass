@@ -1,0 +1,51 @@
+// mixins/_responsive.sass
+// Mixins that help with responsive styling
+
+$base-font-size: 16 !default
+
+// Convenient responsive breakpoints based on Bootstrap 3 defaults
+=query($point)
+    @if $point == one-column or $point == xs
+        @media (max-width: 767px)
+            @content
+    // Two column, "non-mobile" and above
+    @if $point == full or $point == xs-plus
+        @media (min-width: 768px)
+            @content
+    // Two column, "non-mobile" only
+    @if $point == sm
+        @media (min-width: 768px) and (max-width: 991px)
+            @content
+    // Two column, "non-mobile" and above
+    @if $point == sm-plus
+        @media (min-width: 768px)
+            @content
+    // Three column, condensed only
+    @if $point == md
+        @media (min-width: 992px) and (max-width: 1999px)
+            @content
+    // Three column, condensed and above
+    @if $point == md-plus
+        @media (min-width: 992px)
+            @content
+    // Three column, design target size
+    @if $point == lg
+        @media (min-width: 1200px)
+            @content
+
+
+// Conv
+=prem($prop, $pxvals, $base: $base-font-size)
+    $rem_comp: null
+    $px_comp: null
+    @each $pxval in $pxvals
+        $rem_comp: $rem_comp #{$pxval / $base}rem
+        $px_comp: $px_comp #{$pxval}px
+    #{$prop}: #{$px_comp}
+    #{$prop}: #{$rem_comp}
+
+=pem($prop, $pxvals, $base: $base-font-size)
+    $em_comp: null
+    @each $pxval in $pxvals
+        $em_comp: $em_comp #{$pxval / $base}em
+    #{$prop}: #{$em_comp}

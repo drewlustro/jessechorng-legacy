@@ -1,0 +1,8 @@
+// mixins/_performance.sass
+// Performance-related hacks and convenience methods
+
+@import _util
+
+=transform-performant
+    +vendorize(backface-visibility, hidden)
+    +vendorize(perspective, 1000)

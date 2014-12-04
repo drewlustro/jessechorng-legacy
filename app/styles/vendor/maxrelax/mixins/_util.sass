@@ -1,0 +1,58 @@
+// mixins/_util.sass
+
+=vendorize($property, $value)
+    -webkit-#{$property}: $value
+    -moz-#{$property}: $value
+    -ms-#{$property}: $value
+    -o-#{$property}: $value
+    #{$property}: $value
+
+=no-select
+    -webkit-touch-callout: none
+    +vendorize(user-select, none)
+
+=no-outline
+    +hover-active-focus
+        outline: none
+        -moz-outline-style: none
+
+=no-text-size-adjust
+    +vendorize(text-size-adjust, none)
+
+=hover-active-focus
+    &:hover,
+    &:active,
+    &:focus
+        @content
+
+=clear
+    &:before, &:after
+        content: "\0020"
+        display: block
+        height: 0
+        overflow: hidden
+    &:after
+        clear: both
+
+=block-center
+    display: block
+    margin-left: auto
+    margin-right: auto
+
+=list-reset
+    list-style: none
+    padding: 0
+    margin: 0
+
+=debug
+    outline: 1px solid #c0392b !important
+    z-index: 999999
+
+=clearfix
+    &:after
+        content: " "
+        display: table
+        clear: both
+
+// Acknowledgements
+// Beat *that* clearfix: [Thierry Koblentz](http://www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.php)
