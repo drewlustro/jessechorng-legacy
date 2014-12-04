@@ -40,12 +40,12 @@ gulp.task('html', ['styles', 'fileinclude'], function () {
 });
 
 gulp.task('images', function () {
-  return gulp.src('app/images/**/*')
+  return gulp.src('app/img/**/*')
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true
     })))
-    .pipe(gulp.dest('dist/images'));
+    .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('fonts', function () {
@@ -120,7 +120,7 @@ gulp.task('watch', ['connect'], function () {
     '.tmp/*.html',
     '.tmp/styles/**/*.css',
     'app/scripts/**/*.js',
-    'app/images/**/*'
+    'app/img/**/*'
   ]).on('change', $.livereload.changed);
 
   gulp.watch(['app/*.html', 'app/partials/*.html'], ['fileinclude']);
