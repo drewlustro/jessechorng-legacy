@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    @@include('./partials/meta.partial.html')
+    <meta name="description" content="">
+
+    <title>A Feeling – Jesse Chorng</title>
+
+    @@include('./partials/opengraph.partial.html', {
+      "type": "article",
+      "title": "A Feeling",
+      "description": "Description of A Feeling",
+      "image": "http://jessechorng.com/img/og-default.png"
+    })
+
+    @@include('./partials/head.partial.html')
+
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <a name="top"></a>
+    <div class="container">
+      @@include('./partials/menu.partial.html', {
+        "menu-class": "menu-about"
+      })
+      <div class="content">
+
+          <h1>A Feeling</h1>
+
+
+      </div>
+    </div>
+    <!-- PRAGMA-END: .container -->
+
+    @@include('./partials/footer.partial.html')
+    @@include('./partials/footer-scripts.partial.html')
+
+</body>
+</html>

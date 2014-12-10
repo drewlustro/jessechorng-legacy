@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    @@include('./partials/meta.partial.html')
+    <meta name="description" content="">
+
+    <title>Three-Sixty – Jesse Chorng</title>
+
+    @@include('./partials/opengraph.partial.html', {
+      "type": "article",
+      "title": "Three-Sixty",
+      "description": "Description of Three-Sixty",
+      "image": "http://jessechorng.com/img/og-default.png"
+    })
+
+    @@include('./partials/head.partial.html')
+
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <a name="top"></a>
+    <div class="container">
+      @@include('./partials/menu.partial.html', {
+        "menu-class": "menu-about"
+      })
+      <div class="content">
+
+        <!-- PRAGMA: ROW -->
+        <div class="row row-media">
+          <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
+            <img src="img/threesixty-3.gif">
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-5">
+            <h5>Three-Sixty</h5>
+            <h6>
+                Steel, Concrete, Skateboard
+            </h6>
+            <p>
+              A kinetic sculpture that expresses all flips and rotations involved with every skateboard trick. I was specifically interested in dissecting the movements involved with 360 Flips. 
+            </p>
+            <p>
+              This project was part of the <i>Hacking Cool</i> series, which included devices created as shortcuts for achieving childhood dreams of achieving cool.
+            </p>
+          </div>
+        </div>
+        
+        <!-- PRAGMA: ROW 
+        <div class="row row-media">
+          <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
+            <img src="img/threesixty-2.jpg">
+          </div>
+        </div> -->
+
+
+      </div>
+    </div>
+    <!-- PRAGMA-END: .container -->
+
+    @@include('./partials/footer.partial.html')
+    @@include('./partials/footer-scripts.partial.html')
+
+</body>
+</html>

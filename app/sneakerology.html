@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    @@include('./partials/meta.partial.html')
+    <meta name="description" content="">
+
+    <title>Sneakerology 101 – Jesse Chorng</title>
+
+    @@include('./partials/opengraph.partial.html', {
+      "type": "article",
+      "title": "Sneakerology 101",
+      "description": "Description of Sneakerology 101",
+      "image": "http://jessechorng.com/img/og-default.png"
+    })
+
+    @@include('./partials/head.partial.html')
+
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <a name="top"></a>
+    <div class="container">
+      @@include('./partials/menu.partial.html', {
+        "menu-class": "menu-about"
+      })
+      <div class="content">
+
+        <!-- PRAGMA: ROW -->
+        <div class="row row-media">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <img src="img/reebok1.jpg">
+          </div>
+        </div>
+
+        <!-- PRAGMA: ROW -->
+        <div class="row row-media">
+          <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+          <div class="col-xs-12 col-sm-11 col-md-11 col-lg-7">
+            <h5>Carnegie Mellon University's Sneakerology 101</h5>
+            <h6>Student led course on the history of modern footwear</h6>
+            <p>
+              Elliott Curtis and I cofounded the first college accredited course on sneaker culture while undergraduates at Carnegie Mellon University. Guest speakers spanning from famous musicians and DJs to senior designers at Reebok and Jordan Brand were invited to speak and give first hand accounts of footwear's impact on fashion, identity, and popular culture.
+            </p>
+            <p>  
+              On April 15, 2009, we released a limited edition Carnegie Mellon X Reebok Reverse Jams, which drew inspiration around the themes of education; the slate nubuck, chalk yellow side-stripes, and wool felt tongue pay homage to the blackboard, chalk, and eraser.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- PRAGMA-END: .container -->
+
+    @@include('./partials/footer.partial.html')
+    @@include('./partials/footer-scripts.partial.html')
+
+</body>
+</html>
