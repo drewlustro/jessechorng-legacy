@@ -1,7 +1,16 @@
 /* jshint node:true */
 'use strict';
 // generated on 2014-12-04 using generator-gulp-webapp 0.2.0
+
 var gulp = require('gulp');
+var argv = require('yargs')
+            .options('d', {
+              alias: 'dest',
+              default: 'staging0'
+            })
+            .usage('Usage: $0 -d <staging[0-3]|live>')
+            .argv;
+
 var $ = require('gulp-load-plugins')();
 
 gulp.task('styles', function () {
@@ -110,6 +119,22 @@ gulp.task('wiredep', function () {
   gulp.src('app/*.html')
     .pipe(wiredep({exclude: ['bootstrap-sass-official']}))
     .pipe(gulp.dest('app'));
+});
+
+gulp.task('deploy', [], function() {
+  var dest = '/sites/jessechorng/' + argv.d;
+  console.log('Destination: "' + dest + '"');
+  return gulp.src('dist/**')
+    .pipe($.rsync({
+      root: 'dist',
+      hostname: 'maxrelax.co',
+      destination: dest,
+      user: 'drew',
+      incremental: true,
+      progress: true,
+      compress: true,
+      recursive: true
+    }));
 });
 
 gulp.task('watch', ['connect'], function () {
