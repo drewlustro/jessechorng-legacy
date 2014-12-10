@@ -121,13 +121,13 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('deploy', [], function() {
+gulp.task('deploy', ['build'], function() {
   var dest = '/sites/jessechorng/' + argv.d;
   console.log('Destination: "' + dest + '"');
   return gulp.src('dist/**')
     .pipe($.rsync({
       root: 'dist',
-      hostname: 'maxrelax.co',
+      hostname: 'drew@maxrelax.co',
       destination: dest,
       user: 'drew',
       incremental: true,
